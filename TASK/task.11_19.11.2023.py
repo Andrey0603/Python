@@ -70,12 +70,13 @@
 
 
 
-def move(input_list, pivot):
-    pivot = pivot % len(input_list)
+# def move(input_list, pivot):
+#     pivot = pivot % len(input_list)
 
-    for i in range(pivot):
-        input_list.insert(
-            0, input_list.pop())
+#     for i in range(pivot):
+#         input_list.insert(
+#             0, input_list.pop())
+
 
 # def move(input_list, pivot):
 #     pivot = pivot % len(input_list)
@@ -84,8 +85,105 @@ def move(input_list, pivot):
 #       input_list[-pivot:] + input_list[:-pivot]
 #     return moved_list
 
-input_list = [1, 2, 3, 4, 5]
-k = 7
+# input_list = [1, 2, 3, 4, 5]
+# k = 7
 
-move(input_list, k)
-print(input_list)
+# move(input_list, k)
+# print(input_list)
+
+# Задача №21. Решение в группах
+# Напишите программу для печати всех уникальных
+# значений в словаре.
+# Input: [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"},
+# {"VI": "S005"}, {"VII": " S005 "}, {" V ":" S009 "}, {" VIII
+# ":" S007 "}]
+# Output: {'S005', 'S002', 'S007', 'S001', 'S009'}
+# Примечание: Список словарей задан изначально.
+# Пользователь его не вводит
+
+
+# # Юлия Чикалева
+# dict_list = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"},
+#         {"VI": "S005"}, {"VII": " S005 "}, {"V":"S009"}, {"VIII":"S007"}]
+
+# res = []
+
+# for dict in dict_list:
+#     for key in dict:
+#         if dict[key].strip() not in res:
+#             res.append(dict[key])
+# print(res)
+
+
+
+
+
+# Андрей Муругов
+# def get_unique_values(array):
+#     result = []
+#     for item in array:
+#         result.extend(item.values())
+#     result = [value.strip() for value in result]
+
+#     return set(result)
+
+# input_list = [
+# {"V": "S001"}, {"V": "S002"}, 
+# {"VI": "S001"}, {"VI": "S005"}, 
+# {"VII": " S005 "}, {" V ":" S009 "}, 
+# {" VIII":" S007 "}
+# ]
+
+# print(
+#     get_unique_values(input_list))
+
+
+
+# Задача НЕГАФИБОНАЧЧИ по желанию
+# Задайте число. Составьте список чисел Фибоначчи, в том числе для отрицательных индексов.
+
+# Пример:
+
+# для k = 8 список будет выглядеть так: [-21 ,13, -8, 5, −3, 2, −1, 1, 0, 1, 1, 2, 3, 5, 8, 13, 21] [Негафибоначчи]
+
+Aitugan Saktaganov
+def fibs(num):
+    nums_pos = [0, 1]
+    nums_neg = [0, 1]
+    for i in range(num - 1):
+        nums_pos.append(nums_pos[i] + nums_pos[i + 1])
+        nums_neg.append(nums_neg[i] - nums_neg[i + 1])
+    return (nums_neg[::-1] + nums_pos)
+
+print(fibs(8))
+
+13:39
+def fibs(num):
+    nums_pos = [0, 1]
+    nums_neg = [0, 1]
+    for i in range(num - 1):
+        nums_pos.append(nums_pos[i] + nums_pos[i + 1])
+        nums_neg.append(nums_neg[i] - nums_neg[i + 1])
+    return (nums_neg[:1:-1] + nums_pos)
+
+print(fibs(8))
+
+
+
+
+Виктория Коробьина
+def print_value(dicts):
+    my_list_without_spaces = []
+    for i in dicts:
+        for key, value in i.items():
+            my_list_without_spaces.append(value.strip())
+
+    return set(my_list_without_spaces)
+
+
+dicts = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"},
+         {"VI": "S005"}, {"VII": " S005 "}, {" V ":" S009 "}, 
+         {" VIII":" S007 "}]
+print((print_value(dicts)))
+
+
