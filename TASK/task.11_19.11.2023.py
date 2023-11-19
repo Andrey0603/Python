@@ -1,9 +1,9 @@
-Timur Islamgulov
-Администратор
-sp = []
-sp = [5,3,6,7,True,False, "Hello", 9.99," world "]
+# Timur Islamgulov
+# Администратор
+# sp = []
+# sp = [5,3,6,7,True,False, "Hello", 9.99," world "]
 
-t = tuple(sp)
+# t = tuple(sp)
 
 # t[0] = 123
 
@@ -43,3 +43,49 @@ t = tuple(sp)
 # Input: [1, 2, 3, 4, 5] k = 2
 # Output: [4, 5, 1, 2, 3]
 
+# input_list = [1, 1, 2, 0, -1, 3, 4, 4]
+
+# def get_set(list):
+#     return len(set(list))
+
+# print(
+#     get_set(
+#         input_list))
+
+
+
+
+# def move(input_list, pivot):
+#     pivot = pivot % len(input_list)
+
+#     left_list = input_list[:-pivot]
+#     right_list = input_list[-pivot:]
+#     moved_list = right_list + left_list 
+#     return moved_list
+
+# input_list = [1, 2, 3, 4, 5]
+# k = 7
+
+# print(move(input_list, k))
+
+
+
+def move(input_list, pivot):
+    pivot = pivot % len(input_list)
+
+    for i in range(pivot):
+        input_list.insert(
+            0, input_list.pop())
+
+# def move(input_list, pivot):
+#     pivot = pivot % len(input_list)
+
+#     moved_list = 
+#       input_list[-pivot:] + input_list[:-pivot]
+#     return moved_list
+
+input_list = [1, 2, 3, 4, 5]
+k = 7
+
+move(input_list, k)
+print(input_list)
